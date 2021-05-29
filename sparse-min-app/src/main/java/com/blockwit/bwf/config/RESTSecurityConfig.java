@@ -29,17 +29,8 @@ public class RESTSecurityConfig extends WebSecurityConfigurerAdapter {
     http
         .requestMatchers().antMatchers("/api/v1/**")
         .and()
-//        .requestMatcher(request -> {
-//          String header = request.getHeader("authorization");
-//          if (header != null && header.startsWith("Basic "))
-//            return true;
-//          return false;
-//        })
         .csrf().disable()
         .exceptionHandling()
-//        .authenticationEntryPoint(new SecurityAuthenticationEntryPoint())
-//        .accessDeniedHandler(new RestAccessDeniedHandler())
-
         .and()
         .anonymous()
         .and()
