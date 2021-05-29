@@ -87,11 +87,22 @@ public class TelegramBot extends TelegramLongPollingCommandBot {
 
   }
 
+
+  String messageParcedDataDTOtoBotMessage(MessageParsedDataDTO dto) {
+    StringBuilder sb = new StringBuilder("Дата платежа: " + dto.getDate() + "\n");
+    sb.append("Сумма: " + dto.getAmount() + "\n");
+    sb.append("Баланс: " + dto.getBalance() + "\n");
+    sb.append("Оригинальное сообщение:\n" + dto.getOriginalMsg());
+    return sb.toString();
+  }
+
   public void sendMessage(String phoneNumber, MessageParsedDataDTO messageParsedDataDTO) {
-    Optional<TelegramUserCredential> optCredential = telegramUserCredentialService.findByPhoneNumber(phoneNumber);
+    String trimedPhoneNumber = phoneNumber.trim();
+    Optional<TelegramUserCredential> optCredential = telegramUserCredentialService.findByPhoneNumber(trimedPhoneNumber);
     if (optCredential.isPresent()) {
       TelegramUserCredential credential = optCredential.get();
-      sendMessage(credential.getChatNumber(), messageParsedDataDTO.toString());
+      String text = messageParcedDataDTOtoBotMessage(messageParsedDataDTO);
+      sendMessage(credential.getChatNumber(), text);
     }
   }
 
