@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.blockwit</groupId>
     <artifactId>sparse-min</artifactId>
-    <version>0.0.0.31-SNAPSHOT</version>
+    <version>0.0.0.32-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
