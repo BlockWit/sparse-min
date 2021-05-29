@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>sparse-min-package</artifactId>
-  <version>0.0.0.29-SNAPSHOT</version>
+  <version>0.0.0.30-SNAPSHOT</version>
   <name>sparse-min-package</name>
   <packaging>rpm</packaging>
 
