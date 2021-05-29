@@ -2,7 +2,7 @@
 Description=P2P Tools service min
 
 [Service]
-ExecStart=/usr/bin/java -jar /opt/sparse/sparse-min-app.war --spring.config.location=/opt/sparse-min/config/application.properties
+ExecStart=/usr/bin/java -jar /opt/sparse-min/sparse-min-app.war --spring.config.location=/opt/sparse-min/config/application.properties
 SuccessExitStatus=143
 TimeoutStopSec=2
 User=sparse-min
