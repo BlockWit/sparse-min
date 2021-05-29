@@ -11,7 +11,7 @@
 
   <groupId>com.blockwit</groupId>
   <artifactId>sparse-min</artifactId>
-  <version>0.0.0.30-SNAPSHOT</version>
+  <version>0.0.0.31-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
   <name>sparse-min</name>
