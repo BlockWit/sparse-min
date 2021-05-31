@@ -98,10 +98,13 @@ public class TelegramBot extends TelegramLongPollingCommandBot {
   }
 
   public void sendMessage(String phoneNumber, MessageParsedDataDTO messageParsedDataDTO) {
+    log.info("Message for phone  " + phoneNumber + " to send " + messageParsedDataDTO.toString());
     String trimedPhoneNumber = phoneNumber.trim();
     Optional<TelegramUserCredential> optCredential = telegramUserCredentialService.findByPhoneNumber(trimedPhoneNumber);
+    log.info("Check cred");
     if (optCredential.isPresent()) {
       TelegramUserCredential credential = optCredential.get();
+      log.info("Credentials exists " + credential);
       String text = messageParcedDataDTOtoBotMessage(messageParsedDataDTO);
       sendMessage(credential.getChatNumber(), text);
     }

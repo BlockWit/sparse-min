@@ -35,14 +35,17 @@ public class MessagesRestController {
   public ResponseEntity<MessageDTO> save(@RequestBody MessageDTO messageDTO) {
     log.info(messageDTO.toString());
     if (messageDTO.getFrom().equals(Tinkoff)) {
+      log.info("Tinkoff detected ");
       Matcher matcher = compiledPattern.matcher(messageDTO.getText());
       if (matcher.matches()) {
+        log.info("Tinkoff matches ");
         MessageParsedDataDTO messageParsedDataDTO = MessageParsedDataDTO.builder()
             .date(messageDTO.getDate())
             .amount(matcher.group(1))
             .balance(matcher.group(4))
             .originalMsg(messageDTO.getText())
             .build();
+        log.info("Sending messages to tg bot");
         telegramBot.sendMessage(messageDTO.getTo(), messageParsedDataDTO);
       }
     }
