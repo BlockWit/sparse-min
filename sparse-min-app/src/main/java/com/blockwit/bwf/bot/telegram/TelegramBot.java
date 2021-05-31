@@ -15,6 +15,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Slf4j
@@ -89,7 +90,7 @@ public class TelegramBot extends TelegramLongPollingCommandBot {
 
 
   String messageParcedDataDTOtoBotMessage(MessageParsedDataDTO dto) {
-    StringBuilder sb = new StringBuilder("Дата платежа: " + dto.getDate() + "\n");
+    StringBuilder sb = new StringBuilder("Дата платежа: " + (new Date(dto.getDate())) + "\n");
     sb.append("Сумма: " + dto.getAmount() + "\n");
     sb.append("Баланс: " + dto.getBalance() + "\n");
     sb.append("Оригинальное сообщение:\n" + dto.getOriginalMsg());
